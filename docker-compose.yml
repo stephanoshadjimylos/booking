@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  booking_engine:
+    build: .
+    container_name: "booking_engine"
+    image: api_v1
+    ports:
+      - "8000:8000"

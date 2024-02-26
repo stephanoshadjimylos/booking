@@ -1,0 +1,4 @@
+**/__pycache__/
+.pytest_cache
+booking_engine/database/*.db
+venv/
