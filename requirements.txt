@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+peewee
+python-multipart
+pytest
+httpx
+python-dotenv
+jinja2

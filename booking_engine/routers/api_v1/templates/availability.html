@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Availability</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .master-container {
+            padding-top: 60px;
+            width: 90%;
+            max-width: 2000px;
+            margin: 0 auto;
+            overflow-y: auto;
+            height: calc(100% - 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hotel-group {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .room {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .room:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .room-details {
+            flex: 2; /* Increase the flex-grow value to allow it to take more space */
+            display: flex;
+            flex-direction: column;
+        }
+        .photos {
+            display: flex;
+            align-items: center;
+            flex: 1; /* Adjust this value as needed to balance space with room-details */
+        }
+        .photos img {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+        .room-details h3, .room-details p {
+            margin: 0 0 10px 0;
+        }
+        .room-details h3 {
+            font-size: 1.2rem;
+            color: #0056b3;
+        }
+        .room-details p {
+            font-size: 1rem;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="master-container">
+        <div class="hotel-group">
+            {% for room in rooms %}
+            <div class="room">
+                <div class="room-details">
+                    <h3>{{ room.name }}</h3>
+                    <p>Price: ${{ room.base_price }}</p>
+                    <p>Adults: {{ room.adults }}, Children: {{ room.children }}, Infants: {{ room.infants }}</p>
+                </div>
+                <div class="photos">
+                    {% for photo in room.photo_paths %}
+                    <img src="imgs/{{ photo }}" alt="Room photo">
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
