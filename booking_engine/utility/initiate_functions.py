@@ -34,8 +34,7 @@ def initiate_db():
 
 
 def populate_test_data():
-    """Function to create a dummy hotel for the test database, used for the unit tests.
-    """
+    """Function to create a dummy hotel for the test database, used for the unit tests."""
     try:
         hotel_id = Hotels.insert(
             name=f"Hotel Resort Spa",
@@ -59,7 +58,16 @@ def populate_test_data():
                 "october": 0.9,
                 "november": 0.7,
                 "december": 0.6,
-            }
+            },
+        ).execute()
+        room_id = Rooms.insert(
+            hotel_id=hotel_id,
+            name="Test Room",
+            base_price=100,
+            adults=2,
+            children=0,
+            infants=0,
+            photo_paths=random.sample(os.listdir("booking_engine/photos"), 3),
         ).execute()
     except IntegrityError:
         logging.info("Hotel Exists")

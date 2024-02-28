@@ -1,7 +1,7 @@
 import peewee as pw
 import os
 
-#if this is run for a test environment, create another DB
+# if this is run for a test environment, create another DB
 if os.environ.get("TEST"):
     db_file = "test.db"
 else:
