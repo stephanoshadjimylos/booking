@@ -99,7 +99,6 @@ def __populate_dummy_data():
                 "november": 0.7,
                 "december": 0.6,
             },
-            minimum_stay=2,
         ).execute()
 
         # insert 5 rooms for this hotel
